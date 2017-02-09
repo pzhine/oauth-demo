@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "C4Q GitHub OAuth Demo",
+    "description": "Lorem ipsum bla bla",
+    "urls": {
+      "github": "http://github/pzhine/oauth-demo",
+      "app": "https://c4q-oauth-demo.herokuapp.com"
+    }
+  },
+  "team": [
+    {
+      "name": "Craig Dejean",
+      "email": "craig.dejean@gmail.com",
+      "links": {
+        "github": "http://github.com/craig91",
+        "linkedin": "http://linkedin.com/thelegendarycraig"
+      }
+    },
+    {
+      "name": "Paul Hine",
+      "email": "paul.hine@gmail.com",
+      "links": {
+        "github": "http://github.com/pzhine",
+        "linkedin": "http://linkedin.com/mrhpaul"
+      }
+    }
+  ]
+}
