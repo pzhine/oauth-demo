@@ -9,6 +9,6 @@ app.get('/oauth', function(req, res) {
   res.status(200).end();
 });
 
-app.listen(8080, function() {
-  console.log('server started on port 8080')
+app.listen(80, function() {
+  console.log('server started on port 80')
 });
