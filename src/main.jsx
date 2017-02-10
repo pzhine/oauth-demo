@@ -4,6 +4,7 @@ import { Router, Route, hashHistory, Link, IndexRoute } from 'react-router';
 import './app.css';
 
 import Login from './components/Login.jsx';
+import Project from './components/Project.jsx';
 
 const Main = React.createClass({
   render() {
@@ -22,6 +23,7 @@ render(
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Login} />
+      <Route path='/project' component={Project} />
     </Route>
   </Router>, 
   document.getElementById('main')
