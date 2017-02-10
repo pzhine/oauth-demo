@@ -6,11 +6,13 @@ import base64 from 'base-64';
 const Project = React.createClass({
   getInitialState() {
     return {
-      projectJson: null
+      projectJson: null,
+      projectImages: []
     }
   },
-  componentWillMount() {
-    const url = 'https://api.github.com/repos/pzhine/oauth-demo/contents/upnext.json';
+  getProject(githubUser, githubRepo) {
+    const url = 'https://api.github.com/repos/'
+      + githubUser + '/' + githubRepo + '/contents/upnext.json';
     fetch(url)
     .then((response) => {
       console.log(response.status);
@@ -26,7 +28,29 @@ const Project = React.createClass({
     .catch((err) => {
       console.log(err);
     });
-
+  },
+  getImages(githubUser, githubRepo) {
+    const url = 'https://api.github.com/repos/'
+      + githubUser + '/' + githubRepo + '/contents/upnext';
+    fetch(url)
+    .then((response) => {
+      console.log(response.status);
+      return response.json();
+    })
+    .then((json) => {
+      this.setState({
+        projectImages: json.map(file => file.download_url)
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    }); 
+  },
+  componentWillMount() {
+    const githubUser = 'pzhine';
+    const githubRepo = 'oauth-demo';
+    this.getProject(githubUser, githubRepo);
+    this.getImages(githubUser, githubRepo);
   },
   render() {
     return (
@@ -38,6 +62,11 @@ const Project = React.createClass({
             : 'loading...'
           }
         </div>
+        <ul>
+          {this.state.projectImages.map((url, idx) => (
+            <li key={idx}><img width="100" src={url} /></li>
+          ))}
+        </ul>
       </div>
     );
   }
