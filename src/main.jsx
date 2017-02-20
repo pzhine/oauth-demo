@@ -12,6 +12,7 @@ const Main = React.createClass({
       <div className="centered">
         <h1>GitHub OAuth Demo</h1>
         <nav>
+          <img src={require('./img/ajax-loader.gif')} />
         </nav>
         { this.props.children }
       </div>

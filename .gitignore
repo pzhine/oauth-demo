@@ -1,6 +1,7 @@
 # node.js
 #
 node_modules/
+public/images/
 npm-debug.log
 bundle.js
 bundle.js.map
